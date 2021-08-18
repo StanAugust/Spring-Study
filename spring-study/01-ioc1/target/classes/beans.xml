@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="mysql" class="dao.UserDaoMysqlImpl"/>
+    <bean id="oracle" class="dao.UserDaoOracleImpl"/>
+
+    <bean id="serviceImpl" class="service.UserServiceImpl2">
+        <!--注意: 这里的name并不是属性 , 而是set方法后面的那部分 , 首字母小写-->
+        <!--引用另外一个bean , 不是用value 而是用 ref-->
+        <property name="userDao" ref="mysql"/>
+    </bean>
+</beans>

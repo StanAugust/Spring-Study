@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="03-ioc2" />
+        <module name="04-DI" />
+        <module name="02-hellospring" />
+        <module name="01-ioc1" />
+        <module name="08-proxy" />
+        <module name="07-appconfig" />
+        <module name="10-mybatis" />
+        <module name="05-autowired" />
+        <module name="06-anno" />
+        <module name="09-aop" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="06-annotation" target="8" />
+      <module name="demo" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo" options="" />
+    </option>
+  </component>
+</project>

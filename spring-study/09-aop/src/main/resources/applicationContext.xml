@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 注册bean -->
+    <bean id="userServiceImpl" class="springAPI.UserServiceImpl"/>
+    <bean id="log" class="springAPI.Log"/>
+    <bean id="diy" class="userDefine.DefinePointcut"/>
+
+    <!--&lt;!&ndash; 方式一：使用原生Spring API接口 &ndash;&gt;-->
+    <!--&lt;!&ndash; aop的配置 &ndash;&gt;-->
+    <!--<aop:config>-->
+    <!--    &lt;!&ndash; 切入点，expression="execution(要执行的位置)" &ndash;&gt;-->
+    <!--    <aop:pointcut id="pointcut" expression="execution(* springAPI.UserServiceImpl.*(..))"/>-->
+    <!--    &lt;!&ndash; 执行方法，advice-ref：在切入点附近要加上的功能 . pointcut-ref：切入点 &ndash;&gt;-->
+    <!--    <aop:advisor advice-ref="log" pointcut-ref="pointcut"/>-->
+    <!--</aop:config>-->
+
+    <!--&lt;!&ndash; 方式二：自定义类来实现AOP &ndash;&gt;-->
+    <!--&lt;!&ndash; aop的配置 &ndash;&gt;-->
+    <!--<aop:config>-->
+    <!--    &lt;!&ndash; 定义该bean为切面 &ndash;&gt;-->
+    <!--    <aop:aspect ref="diy">-->
+    <!--        <aop:pointcut id="pointcut" expression="execution(* springAPI.UserServiceImpl.*(..))"/>-->
+    <!--        <aop:before method="before" pointcut-ref="pointcut"/>-->
+    <!--        <aop:after method="after" pointcut-ref="pointcut"/>-->
+    <!--    </aop:aspect>-->
+    <!--</aop:config>-->
+
+    <!-- 方式三：使用注解实现AOP-->
+    <bean id="anno" class="annotation.AnnoPointcut"/>
+    <!-- 开启注解支持，使用JDK进行动态代理织入增强（默认，proxy-target-class="false"）；使用cgLib（proxy-target-class="true"）-->
+    <aop:aspectj-autoproxy proxy-target-class="false"/>
+
+</beans>

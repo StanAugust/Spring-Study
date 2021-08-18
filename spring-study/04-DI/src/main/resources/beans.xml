@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address" class="pojo.Address">
+        <!-- 1.常量注入 -->
+        <property name="address" value="China"/>
+    </bean>
+
+    <bean id="student" class="pojo.Student">
+        <property name="name" value="Stan"/>
+        <!-- 2. Bean注入 -->
+        <property name="address" ref="address"/>
+
+        <!-- 3. 数组注入-->
+        <property name="majors">
+            <array>
+                <value>Computer Science</value>
+                <value>Management</value>
+            </array>
+        </property>
+
+        <!-- 4. List注入-->
+        <property name="hobbies">
+            <list>
+                <value>coding</value>
+                <value>music</value>
+                <value>movie</value>
+            </list>
+        </property>
+
+        <!-- 5. Map注入-->
+        <property name="cards">
+            <map>
+                <entry key="id" value="350122111111111111"/>
+                <entry key="bank" value="41050311111111111111"/>
+            </map>
+        </property>
+
+        <!-- 6. Set注入-->
+        <property name="games">
+            <set>
+                <value>Starve Together</value>
+                <value>Red Alert</value>
+            </set>
+        </property>
+
+        <!-- 7. Null注入-->
+        <property name="partner">
+            <null/>
+        </property>
+
+        <!-- 8. Properties注入-->
+        <property name="info">
+            <props>
+                <prop key="sex">Female</prop>
+                <prop key="age">18</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="user" class="pojo.User" p:id="3" p:name="Stan" scope="prototype"/>
+<!--    <bean id="user" class="pojo.User" c:id="3" c:name="Stan"/>-->
+</beans>
