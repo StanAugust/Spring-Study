@@ -1,6 +1,6 @@
 
 
-Spring学习笔记
+# Spring学习笔记
 
 
 
@@ -788,7 +788,7 @@ jdk1.5开始支持注解，spring2.5开始全面支持注解
 
 ## 8. 使用注解开发
 
-### 8.1 基础
+### 8.1 基础 @Component
 
 > 导包
 
@@ -809,11 +809,13 @@ jdk1.5开始支持注解，spring2.5开始全面支持注解
   <context:component-scan base-package="pojo"/>
   ```
 
-+ 在指定包下编写类，添加注解 @Component
++ 在指定包下编写类，添加注解 `@Component`
 
   ![image-20210802201144241](https://gitee.com/StanAugust/picbed/raw/master/img/image-20210802201144241.png)	
 
-+ 属性注入
+  > ![image-20210825213642329](https://gitee.com/StanAugust/picbed/raw/master/img/image-20210825213642329.png)	
+
++ 属性注入`@Value`
 
   ![image-20210802201305815](https://gitee.com/StanAugust/picbed/raw/master/img/image-20210802201305815.png)	
 
@@ -883,17 +885,27 @@ jdk1.5开始支持注解，spring2.5开始全面支持注解
 
 
 
-#### 代码实现
+### 代码实现
 
 ![image-20210802205118017](https://gitee.com/StanAugust/picbed/raw/master/img/image-20210802205118017.png)	
 
-+ 编写一个实体类，将其注册到Spring中
++ 编写一个实体类，用 `@Component `将其注册到Spring中
 
-  ![image-20210802205237485](https://gitee.com/StanAugust/picbed/raw/master/img/image-20210802205237485.png)	
+  ![image-20210802205237485](https://gitee.com/StanAugust/picbed/raw/master/img/image-20210802205237485.png)		
 
-+ 新建一个config配置包，编写一个配置类
++ 新建一个config配置包，编写一个配置类，用 `@Configuration` 表示
 
   ![image-20210802205258325](https://gitee.com/StanAugust/picbed/raw/master/img/image-20210802205258325.png)	
+
+  `@Configuration` 和 `@Bean` 结合使用
+
+  + `@Configuration` 相当于xml中的<beans>标签
+
+  + `@Bean` 相当于xml中的<bean>标签
+
+    > ![](https://gitee.com/StanAugust/picbed/raw/master/img/image-20210825214407314.png)	
+    >
+    > ![image-20210825214728491](https://gitee.com/StanAugust/picbed/raw/master/img/image-20210825214728491.png)	
 
 + 测试，读取配置的类不同了
 
@@ -905,7 +917,7 @@ jdk1.5开始支持注解，spring2.5开始全面支持注解
 
 
 
-#### 导入其它配置
+### 导入其它配置@Import
 
 ![image-20210802210629144](https://gitee.com/StanAugust/picbed/raw/master/img/image-20210802210629144.png)	
 
@@ -1052,7 +1064,7 @@ AOP的底层机制就是动态代理
 
 #### 10.2.1 JDK动态代理核心类
 
-##### **Proxy**
+##### Proxy
 
 ![image-20210806211735006](https://gitee.com/StanAugust/picbed/raw/master/img/image-20210806211735006.png)
 
